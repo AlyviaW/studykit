@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>AI StudyKit</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>AI StudyKit</h1>
+    <div class="lang">
+      <label>语言：</label>
+      <select id="lang">
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+      </select>
+    </div>
+  </header>
+
+  <section class="controls">
+    <button id="extractPage">整页提取</button>
+    <button id="extractSelection">选区提取</button>
+    <button id="generateAll" disabled>生成 摘要/测验/闪卡</button>
+    <button id="saveNote" disabled>保存笔记</button>
+  </section>
+
+  <section id="tabs">
+    <button data-tab="summary" class="active">摘要</button>
+    <button data-tab="quiz">测验</button>
+    <button data-tab="cards">闪卡</button>
+    <button data-tab="export">导出</button>
+  </section>
+
+  <main>
+    <div id="summary" class="tab active">
+      <h2>TL;DR</h2>
+      <p id="tldr"></p>
+      <h3>要点</h3>
+      <ul id="bullets"></ul>
+      <h3>关键词</h3>
+      <p id="keywords"></p>
+    </div>
+
+    <div id="quiz" class="tab">
+      <ol id="quizList"></ol>
+      <div id="quizResult"></div>
+    </div>
+
+    <div id="cards" class="tab">
+      <ul id="cardList"></ul>
+    </div>
+
+    <div id="export" class="tab">
+      <button id="exportMD">导出 Markdown</button>
+      <button id="exportCSV">导出 CSV (Anki)</button>
+      <button id="exportJSON">导出 JSON</button>
+      <p class="hint">CSV 可直接拖入 Anki；Markdown/CSV/JSON 可直接导入 Notion。</p>
+    </div>
+  </main>
+
+  <footer>
+    <small>隐私：仅处理当前页文本，数据默认本地保存。</small>
+  </footer>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
